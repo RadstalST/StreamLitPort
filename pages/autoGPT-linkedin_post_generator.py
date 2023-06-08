@@ -129,6 +129,7 @@ def open_ai_generation(topic, context, target_audience):
 with st.container():
     if OPENAI_API_KEY and topic and context and target_audience:
         markdown_response, dalle_image_url, titles, sub_titles, captions = open_ai_generation(topic, context, target_audience)
+        st.markdown(markdown_response)
     else:
         titles = ["", "", ""]
         sub_titles = ["", "", ""]
@@ -203,20 +204,6 @@ html_code = f'''
             font-weight: bold;
         }}
 
-
-        .overlay h1 {{
-            font-size: 32px;
-            margin-bottom: 10px;
-        }}
-
-        .overlay h2 {{
-            font-size: 24px;
-            margin-bottom: 10px;
-        }}
-
-        .overlay p {{
-            font-size: 16px;
-        }}
     </style>
     <div class="container">
         <div class="overlay_gradient">
@@ -224,8 +211,6 @@ html_code = f'''
         </div>
         <div class="overlay">
             <h1>{main_title}</h1>
-            <h2>{sub_title}</h2>
-            <p>{caption}</p>
         </div>
     </div>
 '''
